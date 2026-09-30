@@ -1,9 +1,6 @@
 class Solution(object):
     def subtreeWithAllDeepest(self, root):
-        """
-        :type root: Optional[TreeNode]
-        :rtype: Optional[TreeNode]
-        """
+
 
         def dfs(node):
             if not node:
@@ -17,7 +14,7 @@ class Solution(object):
             elif right_depth > left_depth:
                 return (right_depth + 1, right_node)
             else:
-                # Both sides have the same deepest depth
+             
                 return (left_depth + 1, node)
 
         return dfs(root)[1]
