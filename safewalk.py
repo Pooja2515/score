@@ -2,27 +2,22 @@ from collections import deque
 
 class Solution(object):
     def findSafeWalk(self, grid, health):
-        """
-        :type grid: List[List[int]]
-        :type health: int
-        :rtype: bool
-        """
+   
         m = len(grid)
         n = len(grid[0])
 
-        # Starting cell cost
         start_health = health - grid[0][0]
 
         if start_health <= 0:
             return False
 
-        # If already at destination
+     
         if m == 1 and n == 1:
             return True
 
         directions = [(1,0), (-1,0), (0,1), (0,-1)]
 
-        # max health remaining at each cell
+l
         best = [[-1] * n for _ in range(m)]
         best[0][0] = start_health
 
