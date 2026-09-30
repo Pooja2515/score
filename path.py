@@ -1,22 +1,17 @@
 class Solution(object):
     def pathsWithMaxScore(self, board):
-        """
-        :type board: List[str]
-        :rtype: List[int]
-        """
+      
         MOD = 10**9 + 7
         n = len(board)
 
-        # dpScore[i][j] = maximum score from (i,j) to S
-        # dpWays[i][j] = number of maximum-score paths
+    
         dpScore = [[-1] * n for _ in range(n)]
         dpWays = [[0] * n for _ in range(n)]
 
-        # Starting point S
         dpScore[n - 1][n - 1] = 0
         dpWays[n - 1][n - 1] = 1
 
-        # Process from bottom-right to top-left
+     
         for i in range(n - 1, -1, -1):
             for j in range(n - 1, -1, -1):
 
@@ -29,7 +24,6 @@ class Solution(object):
                 maxScore = -1
                 ways = 0
 
-                # Down
                 if i + 1 < n and dpScore[i + 1][j] != -1:
                     if dpScore[i + 1][j] > maxScore:
                         maxScore = dpScore[i + 1][j]
@@ -37,7 +31,7 @@ class Solution(object):
                     elif dpScore[i + 1][j] == maxScore:
                         ways = (ways + dpWays[i + 1][j]) % MOD
 
-                # Right
+            
                 if j + 1 < n and dpScore[i][j + 1] != -1:
                     if dpScore[i][j + 1] > maxScore:
                         maxScore = dpScore[i][j + 1]
@@ -45,7 +39,6 @@ class Solution(object):
                     elif dpScore[i][j + 1] == maxScore:
                         ways = (ways + dpWays[i][j + 1]) % MOD
 
-                # Diagonal
                 if i + 1 < n and j + 1 < n and dpScore[i + 1][j + 1] != -1:
                     if dpScore[i + 1][j + 1] > maxScore:
                         maxScore = dpScore[i + 1][j + 1]
