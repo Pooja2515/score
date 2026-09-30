@@ -3,7 +3,7 @@ class Solution:
         MOD = 10**9 + 7
         self.max_product = 0
 
-        # Step 1: Compute total sum of tree
+
         def totalSum(node):
             if not node:
                 return 0
@@ -11,7 +11,7 @@ class Solution:
 
         total = totalSum(root)
 
-        # Step 2: Compute subtree sums and max product
+
         def dfs(node):
             if not node:
                 return 0
@@ -21,7 +21,6 @@ class Solution:
 
             subtree_sum = node.val + left_sum + right_sum
 
-            # product if we cut here
             product = subtree_sum * (total - subtree_sum)
             self.max_product = max(self.max_product, product)
 
