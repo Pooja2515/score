@@ -3,16 +3,11 @@ import math
 
 class Solution(object):
     def findMaxPathScore(self, edges, online, k):
-        """
-        :type edges: List[List[int]]
-        :type online: List[bool]
-        :type k: int
-        :rtype: int
-        """
+
 
         n = len(online)
 
-        # Build graph
+    
         graph = [[] for _ in range(n)]
         indegree = [0] * n
         costs = set()
@@ -22,7 +17,7 @@ class Solution(object):
             indegree[v] += 1
             costs.add(c)
 
-        # Topological sort (same for all checks)
+      
         q = deque()
         for i in range(n):
             if indegree[i] == 0:
@@ -52,7 +47,6 @@ class Solution(object):
                 if dist[u] == INF:
                     continue
 
-                # Intermediate offline nodes not allowed
                 if u != 0 and u != n - 1 and not online[u]:
                     continue
 
