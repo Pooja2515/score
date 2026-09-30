@@ -8,7 +8,7 @@ class Solution:
         def is_magic(r, c):
             nums = set()
             
-            # Check numbers 1–9 and uniqueness
+   
             for i in range(r, r + 3):
                 for j in range(c, c + 3):
                     if grid[i][j] < 1 or grid[i][j] > 9:
@@ -18,20 +18,17 @@ class Solution:
             if len(nums) != 9:
                 return False
             
-            # Check sums
             s = sum(grid[r][c:c+3])
             
-            # Rows
             for i in range(r, r + 3):
                 if sum(grid[i][c:c+3]) != s:
                     return False
             
-            # Columns
+            
             for j in range(c, c + 3):
                 if grid[r][j] + grid[r+1][j] + grid[r+2][j] != s:
                     return False
             
-            # Diagonals
             if grid[r][c] + grid[r+1][c+1] + grid[r+2][c+2] != s:
                 return False
             if grid[r][c+2] + grid[r+1][c+1] + grid[r+2][c] != s:
