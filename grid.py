@@ -2,8 +2,8 @@ class Solution:
     def numOfWays(self, n):
         MOD = 10**9 + 7
         
-        a = 6  # ABA patterns
-        b = 6  # ABC patterns
+        a = 6  
+        b = 6 
         
         for _ in range(2, n + 1):
             new_a = (3 * a + 2 * b) % MOD
