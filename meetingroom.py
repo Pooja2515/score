@@ -32,17 +32,14 @@ class Solution(object):
                 return i
 
 
-# ---- Run locally ----
 if __name__ == "__main__":
     sol = Solution()
     
-    # Example 1
     n = 2
     meetings = [[0,10],[1,5],[2,7],[3,4]]
-    print(sol.mostBooked(n, meetings))  # Expected output: 0
-    
-    # Example 2
+    print(sol.mostBooked(n, meetings)) 
+   
     n = 3
     meetings = [[1,20],[2,10],[3,5],[4,9],[6,8]]
-    print(sol.mostBooked(n, meetings))  # Expected output: 1
+    print(sol.mostBooked(n, meetings)) 
 
