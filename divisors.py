@@ -11,7 +11,7 @@ class Solution:
         total = 0
 
         for n in nums:
-            # Case 1: p^3
+
             p = 2
             while p * p * p <= n:
                 if p * p * p == n and is_prime(p):
@@ -19,7 +19,7 @@ class Solution:
                     break
                 p += 1
             else:
-                # Case 2: p * q (exactly one valid prime pair)
+               
                 divisors = []
                 for i in range(2, int(n ** 0.5) + 1):
                     if n % i == 0:
